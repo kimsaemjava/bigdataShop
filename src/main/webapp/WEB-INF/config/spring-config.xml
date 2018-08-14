@@ -23,6 +23,7 @@
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/" />
 		<beans:property name="suffix" value=".jsp" />
+		<beans:property name="order" value="2"/>
 	</beans:bean>
 
 	<!-- =====================db관련 작업============================== -->
@@ -41,4 +42,26 @@
 	<!-- ======================어노테이션============================== -->
 	<context:component-scan base-package="kr" />
 	<context:component-scan base-package="main" />
+	
+	
+	
+	<!-- ==================tiles를 사용하기 위한 설정===================== -->
+	<!-- 1. tiles의 설정파일의 정보를 등록 -->
+	<beans:bean id="tilesConfigurer"
+	 class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<beans:property name="definitions">
+			<beans:list>
+				<beans:value>/WEB-INF/**/*-tiles.xml</beans:value>
+			</beans:list>
+		</beans:property>
+	</beans:bean>
+	
+	<!-- 2. ViewResolver가 기본 jsp로 뷰를 생성하지 않고 tiles프레임워크를 통해서 뷰를
+	        생성할 수 있도록 뷰리졸버를 등록 -->
+	<beans:bean id="tilesViewResolver"
+	class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<beans:property name="viewClass"
+		value="org.springframework.web.servlet.view.tiles3.TilesView"/>
+		<beans:property name="order" value="1"/>
+	</beans:bean>
 </beans:beans>
