@@ -60,5 +60,42 @@
 			</a>
 		</div>
 	</div>
+	<br />
+	<br />
+	<div class="row">
+		<div class="col-sm-4">
+				<div class="panel panel-primary">
+					<div class="panel-heading">원피스1</div>
+					<div class="panel-body">
+						<a href="#"><img
+							src="/bigdataShop/resources/images/product/dress_images1.jpg"
+							class="img-responsive" style="width: 70%; height: 70%" alt="Image"></a>
+					</div>
+					<div class="panel-footer">판매금액:27000</div>
+				</div>
+		</div>
+		<div class="col-sm-4">
+				<div class="panel panel-primary">
+					<div class="panel-heading">원피스2</div>
+					<div class="panel-body">
+						<a href="#"><img
+							src="/bigdataShop/resources/images/product/dress_images3.jpg"
+							class="img-responsive" style="width: 70%; height: 70%" alt="Image"></a>
+					</div>
+					<div class="panel-footer">판매금액:27000</div>
+				</div>
+		</div>
+		<div class="col-sm-4">
+				<div class="panel panel-primary">
+					<div class="panel-heading">원피스3</div>
+					<div class="panel-body">
+						<a href="#"><img
+							src="/bigdataShop/resources/images/product/dress_images2.jpg"
+							class="img-responsive" style="width: 70%; height: 70%" alt="Image"></a>
+					</div>
+					<div class="panel-footer">판매금액:27000</div>
+				</div>
+		</div>
+	</div>
 </body>
 </html>
