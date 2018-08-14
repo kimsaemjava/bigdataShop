@@ -10,4 +10,9 @@ public class IndexController{
 		System.out.println("어노테이션 기반");
 		return "index";
 	}
+	@RequestMapping("/admin/index.do")
+	public String adminMain(){
+		System.out.println("어노테이션 기반");
+		return "admin/index";
+	}
 }
