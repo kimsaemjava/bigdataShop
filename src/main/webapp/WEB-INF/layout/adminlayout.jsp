@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 
 <!DOCTYPE html>
 <html>
@@ -43,12 +44,15 @@ footer {
 	<div id="outer" >
 		<div id="header" >
 			<!-- 여기에 top메뉴가 연결되도록 하세요 -->
+			<tiles:insertAttribute name="top" />
 		</div>
 		<div id="left" class="col-sm-2 sidenav">
 			<!-- 여기에 adminleft메뉴가 연결되도록 하세요 -->
+			<tiles:insertAttribute name="adminleft" />
 		</div>
 		<div id="content" class="col-sm-10">
 			<!-- 여기에 admincontent가 연결되도록 하세요 -->
+			<tiles:insertAttribute name="admincontent" />
 		</div>
 	</div>
 </body>
