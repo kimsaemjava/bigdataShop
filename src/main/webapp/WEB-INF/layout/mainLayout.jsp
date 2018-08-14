@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,16 +39,15 @@ footer {
 </style>
 </head>
 <body>
+	<div id="top" class="row">
+		<tiles:insertAttribute name="top"></tiles:insertAttribute>
+	</div>
+ 	<div>
+		<tiles:insertAttribute name="menu"></tiles:insertAttribute>
+	</div> 
 	<div id="outer">
-	
-
-
-
 		<div class="container">
-	
 		</div> 
-		
-
 		<footer class="container-fluid text-center">
 			<p>Online Store Copyright</p>
 			<form class="form-inline">
