@@ -33,22 +33,17 @@
 	
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
-			<c:forEach var="hitprd" items="${hitprdlist }">
-				<div class="item " style="height: 250px">
-					<img src="/bigdataShop/resources/images/product/${hitprd.img_gen_file_nm}" alt="Chania">
-				</div> 
-			<%-- 	<c:if test="#{!hitprd==hitprdlist.get(0) }">
-					<div class="item" style="height: 250px">
-						<img src="/bigdataShop/resources/images/product/${hitprd.img_gen_file_nm}" alt="Chania" width="460" height="345">
-					</div> 
-				</c:if> --%>
-				<!-- <div class="item active" style="height: 250px">
-					<img src="/bigdataShop/resources/images/product/dress_images1.jpg" alt="Chania" >
-				</div>
-	
-				<div class="item" style="height: 250px">
-					<img src="/bigdataShop/resources/images/product/acc_image5.jpg" alt="Chania" width="460" height="345">
-				</div> -->
+				<c:forEach var="hitprd" items="${hitprdlist }">
+					<c:if test="${hitprd.prd_no==hitprdlist.get(0).prd_no }">
+						<div class="item active" style="height: 250px">
+							<img src="/bigdataShop/resources/images/product/${hitprd.img_gen_file_nm}" alt="Chania">
+						</div> 
+					</c:if>
+					<c:if test="${hitprd.prd_no!=hitprdlist.get(0).prd_no }">
+						<div class="item" style="height: 250px">
+							<img src="/bigdataShop/resources/images/product/${hitprd.img_gen_file_nm}" alt="Chania" width="460" height="345">
+						</div> 
+					</c:if>
 				</c:forEach>
 			</div>
 			<!-- Left and right controls -->
