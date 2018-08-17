@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,21 +34,14 @@
 	
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
-				<div class="item active" style="height: 250px">
+				<c:forEach var="hit" items="${hitproduct}">
+				
+				
+<!-- 				<div class="item active" style="height: 250px">
 					<img src="/bigdataShop/resources/images/product/dress_images1.jpg" alt="Chania" >
-				</div>
+				</div> -->
 	
-				<div class="item" style="height: 250px">
-					<img src="/bigdataShop/resources/images/product/acc_image5.jpg" alt="Chania" width="460" height="345">
-				</div>
-	
-				<div class="item" style="height: 250px">
-					<img src="/bigdataShop/resources/images/product/bottom_image3.jpg" alt="Flower" width="460" height="345">
-				</div>
-	
-				<div class="item" style="height: 250px">
-					<img src="/bigdataShop/resources/images/product/outer_image5.gif" alt="Flower" width="460" height="345">
-				</div>
+				</c:forEach>
 			</div>
 	
 			<!-- Left and right controls -->
