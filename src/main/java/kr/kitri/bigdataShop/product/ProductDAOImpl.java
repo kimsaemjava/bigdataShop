@@ -20,12 +20,12 @@ public class ProductDAOImpl implements ProductDAO {
 
 	@Override
 	public List<ProductDTO> hitproduct() {
-		return sqlSession.selectList("kr.kitri.bigdataShop.product.hit");
+		return sqlSession.selectList("kr.kitri.bigdataShop.product.hitprd");
 	}
 
 	@Override
 	public List<ProductDTO> newproduct() {
-		return sqlSession.selectList("kr.kitri.bigdataShop.product.new");
+		return sqlSession.selectList("kr.kitri.bigdataShop.product.newprd");
 
 	}
 

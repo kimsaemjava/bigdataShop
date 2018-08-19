@@ -29,7 +29,8 @@ public class IndexController{
 		
 		mav.addObject("hitproduct", hitproduct);
 		mav.addObject("newproduct", newproduct);
-
+		mav.setViewName("index");
+		
 		return mav;
 	}
 	

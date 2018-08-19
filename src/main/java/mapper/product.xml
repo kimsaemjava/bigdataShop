@@ -1,30 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.kitri.bigdataShop.product">
-
-	<select id="hit" resultType="product">
-		select p.*, sort_table.sumqty
-		from
-		tb_product p,
-		(select prd_no, sum(qty) sumqty
-		from TB_ORDER_PRODUCT
-		group by prd_no
-		order by sumqty desc) sort_table
-		where p.prd_no = sort_table.prd_no
-		and <![CDATA[rownum <= 5]]>
+	<select id="hitprd" resultType="product">
+		<![CDATA[select p.*, sort_table.sumqt 
+			from TB_PRODUCT p, 
+			(select prd_no, sum(qty) sumqt from TB_ORDER_PRODUCT group by prd_no order by sumqt desc) sort_table
+			where p.prd_no = sort_table.prd_no and rownum <= 4]]>	
 	</select>
-
-	<select id="new" resultType="product">
-		select *
-		from
-		(select tb_product.*,
-		rank() over(order by reg_dtm desc) as myrank
-		from tb_product)
-		rank_table
-		where <![CDATA[myrank<=3]]>
+	<select id="newprd" resultType="product">
+		<![CDATA[select * 
+			from (
+			select TB_PRODUCT.*, rank() over(order by REG_DTM desc) as myrank from TB_PRODUCT) rank_table 
+			where rownum <= 3]]>
 	</select>
-
-
-
-
 </mapper>
