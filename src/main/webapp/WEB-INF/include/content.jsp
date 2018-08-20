@@ -33,16 +33,16 @@
 	
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
-				<c:forEach var="hit" items="${hitproduct}">
+				<c:forEach varStatus="mystatus" var="hititem" items="${hitProduct}">
 					<c:choose>
-						<c:when test="${hit==hitproduct.get(0)}">
+						<c:when test="${mystatus.index==0}">
 							<div class="item active" style="height: 250px">
-								<img src="/bigdataShop/resources/images/product/${hit.img_gen_file_nm}" alt="Chania" >
+								<img src="/bigdataShop/resources/images/product/${hititem.img_gen_file_nm}" alt="Chania" >
 							</div>
 						</c:when>
 						<c:otherwise>
 							<div class="item" style="height: 250px">
-								<img src="/bigdataShop/resources/images/product/${hit.img_gen_file_nm}" alt="Chania"  width="460" height="345">
+								<img src="/bigdataShop/resources/images/product/${hititem.img_gen_file_nm}" alt="Chania"  width="460" height="345">
 							</div>
 						</c:otherwise>
 					</c:choose>
@@ -64,7 +64,7 @@
 	<br />
 	<div class="row">
 	
-		<c:forEach var="newitem" items="${newproduct}">
+		<c:forEach var="newitem" items="${newProduct}">
 		<div class="col-sm-4">
 				<div class="panel panel-primary">
 					<div class="panel-heading">${newitem.prd_nm}</div>

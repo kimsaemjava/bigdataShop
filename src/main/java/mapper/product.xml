@@ -11,4 +11,12 @@
 			select TB_PRODUCT.*, rank() over(order by REG_DTM desc) as myrank from TB_PRODUCT) rank_table 
 			where rownum <= 3]]>
 	</select>
+	<select id="productlistall" resultType="product">
+		select * from TB_PRODUCT  
+	</select>
+	<select id="productlist" parameterType="String" resultType="product">
+		select * from TB_PRODUCT  
+		where CATEGORY_NO = (select CATEGORY_NO from TB_CATEGORY where
+			CATEGORY_NM = #{category_nm})
+	</select>
 </mapper>
