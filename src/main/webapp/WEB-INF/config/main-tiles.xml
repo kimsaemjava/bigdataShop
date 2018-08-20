@@ -9,4 +9,7 @@
 	</definition>
 	<definition name="index" extends="mainTemplate">
 	</definition>
+	<definition name ="product/prdlist" extends="mainTemplate">
+		<put-attribute name="content" value="/WEB-INF/product/prdlist.jsp"/>
+	</definition>
 </tiles-definitions>

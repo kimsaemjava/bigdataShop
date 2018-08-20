@@ -9,4 +9,7 @@
 <select id="mainnewproduct" resultType="product">
 	<![CDATA[select * from tb_product where rownum<=3 order by reg_dtm desc]]>
 </select>
+<select id ="allproduct" resultType="product" parameterType="String">
+	select * from tb_product where category_no = #{category}
+</select>
 </mapper>

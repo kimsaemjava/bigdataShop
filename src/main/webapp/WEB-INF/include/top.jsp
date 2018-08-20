@@ -27,12 +27,12 @@
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="/bigdataShop/product/list.do">DRESS</a></li>
-        <li><a href="/bigdataShop/product/list.do">OUTER</a></li>
-        <li><a href="#">TOP</a></li>
-        <li><a href="#">BOTTOM</a></li>
-        <li><a href="#">ACC</a></li>
+        <li class="active"><a href="/bigdataShop/index.do">Home</a></li>
+        <li><a href="/bigdataShop/product/list.do?category=dress">DRESS</a></li>
+        <li><a href="/bigdataShop/product/list.do?category=outer">OUTER</a></li>
+        <li><a href="/bigdataShop/product/list.do?category=top">TOP</a></li>
+        <li><a href="/bigdataShop/product/list.do?category=bottom">BOTTOM</a></li>
+        <li><a href="/bigdataShop/product/list.do?category=acc">ACC</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
       	<li><a href="/bigdataShop/admin/index.do"><span class="glyphicon glyphicon-user"></span>관리자</a></li>
