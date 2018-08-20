@@ -19,16 +19,17 @@
 	</select>
 
 	<select id="category" parameterType="String" resultType="product">
-		select p.*, c.category_nm
-		from TB_PRODUCT p, TB_CATEGORY c
-		where p.category_no=c.category_no
-		and c.category_nm = ${category_nm}
+		select *
+		from TB_PRODUCT
+		where CATEGORY_NO = (select CATEGORY_NO
+		from TB_CATEGORY
+		where CATEGORY_NM = ${category_nm})
+
 	</select>
 
 	<select id="categoryall" parameterType="String" resultType="product">
-		select p.*, c.category_nm
-		from TB_PRODUCT p, TB_CATEGORY c
-		where p.category_no=c.category_no
+		select *
+		from TB_PRODUCT p
 	</select>
 
 </mapper>

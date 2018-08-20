@@ -11,10 +11,14 @@ public class ProductDAOImpl implements ProductDAO {
 
 	@Autowired
 	SqlSession sqlSession; // dao연동하는 메소드가 정의되어 있는 템플릿 클래스
-	
+
 	@Override
 	public List<ProductDTO> productlist(String category_nm) {
-		return sqlSession.selectList("kr.kitri.bigdataShop.product.category",category_nm);
+		if (category_nm.equals("ALL")) {
+			return sqlSession.selectList("kr.kitri.bigdataShop.product.categoryall");
+		} else {
+			return sqlSession.selectList("kr.kitri.bigdataShop.product.category", category_nm);
+		}
 	}
 
 	@Override

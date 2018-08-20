@@ -15,14 +15,12 @@ public class ProductController {
 	@Autowired
 	ProductService service;
 
-	String category_nm = "";
-
 	@RequestMapping("/product/list.do")
-	public String list(@RequestParam("category") String category_nm, Model model) {
+	public String list(String category, Model model) {
 		System.out.println("어노테이션 기반");
-		System.out.println("카테고리: "+category_nm);
+		System.out.println("카테고리: "+category);
 		List<ProductDTO> productlist = null;
-		productlist = service.productlist(category_nm);
+		productlist = service.productlist(category);
 
 		System.out.println("상품목록: "+productlist);
 		model.addAttribute("productlist", productlist);

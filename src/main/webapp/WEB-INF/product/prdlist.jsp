@@ -50,6 +50,7 @@ footer {
 
 	<div class="goodsListArea">
 		<!-- 조회 결과 메세지 및 순서 -->
+		${productlist }
 		<div class="goodsListHead">
 			<p>
 				총<span></span> 개의 상품이 있습니다.
