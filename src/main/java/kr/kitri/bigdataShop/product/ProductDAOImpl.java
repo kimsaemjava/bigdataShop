@@ -12,7 +12,7 @@ public class ProductDAOImpl implements ProductDAO {
 	
 	@Override
 	public List<ProductDTO> productlist(String category) {
-		return null;
+		return sqlSession.selectList("kr.kitri.product.allproduct", category);
 	}
 
 	@Override

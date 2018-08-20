@@ -41,7 +41,25 @@
 
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
-				<div class="item active" style="height: 250px">
+				<c:forEach varStatus="mystatus" var="hititem" items="${hitproduct }">
+					<c:choose>
+						<c:when test="${mystatus.index==0 }">
+							<div class="item active" style="height: 250px">
+								<img
+									src="/bigdataShop/resources/images/product/${hititem.img_org_file_nm }"
+									alt="Chania" width="460" height="345">
+							</div>
+						</c:when>
+						<c:otherwise>
+							<div class="item" style="height: 250px">
+								<img
+									src="/bigdataShop/resources/images/product/${hititem.img_org_file_nm }"
+									alt="Chania" width="460" height="345">
+							</div>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
+				<!-- 	<div class="item active" style="height: 250px">
 					<img src="/bigdataShop/resources/images/product/dress_images1.jpg"
 						alt="Chania">
 				</div>
@@ -59,7 +77,7 @@
 				<div class="item" style="height: 250px">
 					<img src="/bigdataShop/resources/images/product/outer_image5.gif"
 						alt="Flower" width="460" height="345">
-				</div>
+				</div> -->
 			</div>
 
 			<!-- Left and right controls -->
@@ -76,12 +94,9 @@
 	</div>
 	<br />
 	<br />
-	<div>
-		${newproduct }
-	</div>
 	<div class="row">
-		<h4>히트상품</h4>
-		<c:forEach var="hit" items="${hitproduct }">
+		<h4>신상품</h4>
+		<c:forEach var="hit" items="${newproduct }">
 			<div class="col-sm-4">
 				<div class="panel panel-primary">
 					<div class="panel-heading">${hit.prd_nm }</div>

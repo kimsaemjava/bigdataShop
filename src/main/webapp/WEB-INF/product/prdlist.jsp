@@ -1,6 +1,8 @@
+<%@page import="kr.kitri.bigdataShop.product.ProductDTO"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" 
 session="true" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,7 +47,7 @@ footer {
 </style>
 </head>
 <body>
-	
+	<%ArrayList<ProductDTO> categorylist = (ArrayList<ProductDTO>) request.getAttribute("categorylist"); %>
 	<div class="goodsListArea">
 		<!-- 조회 결과 메세지 및 순서 -->
 		<div class="goodsListHead">
@@ -90,11 +92,12 @@ footer {
 
 			<ul class="goodsAreaG">
 							<!-- *상품 있을경우 -->
+				<c:forEach var="category" items="${categorylist }">
 				<li><a href="#" class="goodsLink"
 					onclick="formGetSubmit( '/commerce/foffice/product/product.lime', 'r_prcode=G4135_F0002_X0004_K0040' )">
-						<img src="/bigdataShop/resources/images/product/bottom_image1.jpg" alt="상품"
+						<img src="/bigdataShop/resources/images/product/${category.img_org_file_nm }" alt="상품"
 						class="photo" /><br /> <span class="proPrice1"></span>
-				</a><br /> <span class="proPrice2">원</span>
+				</a><br /> <span class="proPrice2">${category.sell_prc_unit }원</span>
 
 
 					<ul class="bIcon">
@@ -108,20 +111,11 @@ footer {
 
 					</ul>
 				</li>
+				</c:forEach>
 		
 			</ul>
 		</div>
 	</div>
-	
-		
-	<footer class="container-fluid text-center">
-			<p>Online Store Copyright</p>
-			<form class="form-inline">
-				Get deals: <input type="email" class="form-control" size="50"
-					placeholder="Email Address">
-				<button type="button" class="btn btn-danger">Sign Up</button>
-			</form>
-		</footer>
 
 </body>
 </html>
