@@ -22,10 +22,8 @@ public class IndexController{
 		//ModelAndView에 hit상품과 new상품을 attribute로 저장
 		
 		ModelAndView mav = new ModelAndView();
-		List<ProductDTO> hitproduct = null;
-		hitproduct = service.hitproduct();
-		List<ProductDTO> newproduct = null;
-		newproduct = service.newproduct();
+		List<ProductDTO> hitproduct = service.hitproduct();
+		List<ProductDTO> newproduct = service.newproduct();
 		
 		mav.addObject("hitproduct", hitproduct);
 		mav.addObject("newproduct", newproduct);

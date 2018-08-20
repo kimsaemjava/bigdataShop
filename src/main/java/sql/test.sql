@@ -19,3 +19,9 @@ where p.prd_no = sort_table.prd_no
 and rownum<=5
 ;
 
+
+
+		select p.*, c.category_nm
+		from TB_PRODUCT p, TB_CATEGORY c
+		where p.category_no=c.category_no
+		and c.category_nm = 'DRESS'

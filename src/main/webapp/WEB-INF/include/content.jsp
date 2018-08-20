@@ -34,20 +34,20 @@
 
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
-				<c:forEach var="hitprd" items="${hitproduct}">
+				<c:forEach varStatus="mystatus" var="hititem" items="${hitproduct}">
 					<c:choose>
-						<c:when test="${hitprd==hitproduct.get(0)}">
+						<c:when test="${mystatus.index==0}">
 							<div class="item active" style="height: 250px">
 								<img
-									src="/bigdataShop/resources/images/product/${hitprd.img_gen_file_nm}"
-									alt="${hitprd.prd_nm }">
+									src="/bigdataShop/resources/images/product/${hititem.img_gen_file_nm}"
+									alt="${hititem.prd_nm }">
 							</div>
 						</c:when>
 						<c:otherwise>
 							<div class="item" style="height: 250px">
 								<img
-									src="/bigdataShop/resources/images/product/${hitprd.img_gen_file_nm}"
-									alt="${hitprd.prd_nm }" width="460" height="345">
+									src="/bigdataShop/resources/images/product/${hititem.img_gen_file_nm}"
+									alt="${hititem.prd_nm }" width="460" height="345">
 							</div>
 						</c:otherwise>
 					</c:choose>
@@ -69,18 +69,18 @@
 	<br />
 	<br />
 	<div class="row">
-		<c:forEach var="newprd" items="${newproduct}">
+		<c:forEach var="newitem" items="${newproduct}">
 
 			<div class="col-sm-4">
 				<div class="panel panel-primary">
-					<div class="panel-heading">${newprd.prd_nm }</div>
+					<div class="panel-heading">${newitem.prd_nm }</div>
 					<div class="panel-body">
 						<a href="#"> <img
-							src="/bigdataShop/resources/images/product/${newprd.img_gen_file_nm }"
+							src="/bigdataShop/resources/images/product/${newitem.img_gen_file_nm }"
 							class="img-responsive" style="width: 70%; height: 70%"
-							alt="${newprd.prd_nm }"></a>
+							alt="${newitem.prd_nm }"></a>
 					</div>
-					<div class="panel-footer">판매금액:${newprd.sell_prc_unit }</div>
+					<div class="panel-footer">판매금액(DB):${newitem.sell_prc_unit }</div>
 				</div>
 			</div>
 		</c:forEach>
