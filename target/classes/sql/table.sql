@@ -16,7 +16,7 @@ CREATE TABLE TB_REPLY (
 DROP TABLE TB_ORDER_PRODUCT CASCADE CONSTRAINTS;
 
 CREATE TABLE TB_ORDER_PRODUCT (
-       ORD_NO               VARCHAR2(12) NOT NULL,
+       ORD_NO               VARCHAR2(20) NOT NULL,
        PRD_NO               VARCHAR2(12) NOT NULL,
        QTY                  NUMBER(8) NULL,
        PRIMARY KEY (ORD_NO, PRD_NO)
@@ -38,7 +38,7 @@ CREATE TABLE TB_PAYMENT (
 DROP TABLE TB_ORDER CASCADE CONSTRAINTS;
 
 CREATE TABLE TB_ORDER (
-       ORD_NO               VARCHAR2(12) NOT NULL,
+       ORD_NO               VARCHAR2(20) NOT NULL,
        MEM_ID               VARCHAR2(20) NOT NULL,
        ORD_AMT              NUMBER(8) NULL,
        RCVR_NM              VARCHAR2(50) NULL,
@@ -95,7 +95,7 @@ CREATE TABLE board (
 create table board_file(
 	board_no varchar2(12),
 	file_name varchar2(30)	
-)
+);
 
 
 DROP TABLE TB_MEM CASCADE CONSTRAINTS;
