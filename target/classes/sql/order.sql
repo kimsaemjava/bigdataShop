@@ -104,20 +104,3 @@ values(to_char(sysdate,'yyyymmdd') ||100||ord_seq.currval,
 commit;
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
