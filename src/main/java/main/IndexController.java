@@ -25,6 +25,8 @@ public class IndexController{
 		List<ProductDTO> hitprdlist = service.hitproduct();
 		mav.addObject("newprdlist",newprdlist);
 		mav.addObject("hitprdlist",hitprdlist);
+		//System.out.println(hitprdlist);
+		//System.out.println(newprdlist);
 		mav.setViewName("index");
 		return mav;
 	}

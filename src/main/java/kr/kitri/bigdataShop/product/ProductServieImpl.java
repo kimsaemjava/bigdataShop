@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 
-@Service("productservice")
+@Service
 public class ProductServieImpl implements ProductService {
 
 	@Autowired
@@ -15,8 +15,8 @@ public class ProductServieImpl implements ProductService {
 	ProductDAO dao;
 	
 	@Override
-	public List<ProductDTO> productlist(String category) {
-		return null;
+	public List<ProductDTO> productlist(String category_nm) {
+		return dao.productlist(category_nm);
 	}
 
 	@Override
