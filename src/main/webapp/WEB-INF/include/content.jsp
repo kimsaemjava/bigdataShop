@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -32,21 +33,20 @@
 	
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
-				<div class="item active" style="height: 250px">
-					<img src="/bigdataShop/resources/images/product/dress_images1.jpg" alt="Chania" >
-				</div>
-	
-				<div class="item" style="height: 250px">
-					<img src="/bigdataShop/resources/images/product/acc_image5.jpg" alt="Chania" width="460" height="345">
-				</div>
-	
-				<div class="item" style="height: 250px">
-					<img src="/bigdataShop/resources/images/product/bottom_image3.jpg" alt="Flower" width="460" height="345">
-				</div>
-	
-				<div class="item" style="height: 250px">
-					<img src="/bigdataShop/resources/images/product/outer_image5.gif" alt="Flower" width="460" height="345">
-				</div>
+				<c:forEach var="hit" items="${hitproduct}">
+					<c:choose>
+						<c:when test="${hit==hitproduct.get(0)}">
+							<div class="item active" style="height: 250px">
+								<img src="/bigdataShop/resources/images/product/${hit.img_gen_file_nm}" alt="Chania" >
+							</div>
+						</c:when>
+						<c:otherwise>
+							<div class="item" style="height: 250px">
+								<img src="/bigdataShop/resources/images/product/${hit.img_gen_file_nm}" alt="Chania"  width="460" height="345">
+							</div>
+						</c:otherwise>
+					</c:choose>
+				</c:forEach>
 			</div>
 	
 			<!-- Left and right controls -->
@@ -63,39 +63,20 @@
 	<br />
 	<br />
 	<div class="row">
+	
+		<c:forEach var="newitem" items="${newproduct}">
 		<div class="col-sm-4">
 				<div class="panel panel-primary">
-					<div class="panel-heading">원피스1</div>
+					<div class="panel-heading">${newitem.prd_nm}</div>
 					<div class="panel-body">
 						<a href="#"><img
-							src="/bigdataShop/resources/images/product/dress_images1.jpg"
+							src="/bigdataShop/resources/images/product/${newitem.img_gen_file_nm} "
 							class="img-responsive" style="width: 70%; height: 70%" alt="Image"></a>
 					</div>
-					<div class="panel-footer">판매금액:27000</div>
+					<div class="panel-footer">판매금액 : ${newitem.sell_prc_unit }</div>
 				</div>
 		</div>
-		<div class="col-sm-4">
-				<div class="panel panel-primary">
-					<div class="panel-heading">원피스2</div>
-					<div class="panel-body">
-						<a href="#"><img
-							src="/bigdataShop/resources/images/product/dress_images3.jpg"
-							class="img-responsive" style="width: 70%; height: 70%" alt="Image"></a>
-					</div>
-					<div class="panel-footer">판매금액:27000</div>
-				</div>
-		</div>
-		<div class="col-sm-4">
-				<div class="panel panel-primary">
-					<div class="panel-heading">원피스3</div>
-					<div class="panel-body">
-						<a href="#"><img
-							src="/bigdataShop/resources/images/product/dress_images2.jpg"
-							class="img-responsive" style="width: 70%; height: 70%" alt="Image"></a>
-					</div>
-					<div class="panel-footer">판매금액:27000</div>
-				</div>
-		</div>
+		</c:forEach>
 	</div>
 </body>
 </html>

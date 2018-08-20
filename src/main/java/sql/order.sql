@@ -1,3 +1,6 @@
+create sequence ord_seq;
+
+
 insert into TB_ORDER
 values (to_char(sysdate,'yyyymmdd') ||100||ord_seq.nextval,
         'lee',50000,'김서연','010','서울','001','test','N',sysdate);
@@ -98,26 +101,3 @@ values (to_char(sysdate,'yyyymmdd') ||100||ord_seq.nextval,
 insert into TB_ORDER_PRODUCT 
 values(to_char(sysdate,'yyyymmdd') ||100||ord_seq.currval,
 			'PRD000000011',1);
-			
-			
-
-commit;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
