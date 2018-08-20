@@ -33,17 +33,19 @@
 	
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner" role="listbox">
-				<c:forEach var="hitprd" items="${hitprdlist }">
-					<c:if test="${hitprd.prd_no==hitprdlist.get(0).prd_no }">
-						<div class="item active" style="height: 250px">
-							<img src="/bigdataShop/resources/images/product/${hitprd.img_gen_file_nm}" alt="Chania">
-						</div> 
-					</c:if>
-					<c:if test="${hitprd.prd_no!=hitprdlist.get(0).prd_no }">
-						<div class="item" style="height: 250px">
-							<img src="/bigdataShop/resources/images/product/${hitprd.img_gen_file_nm}" alt="Chania" width="460" height="345">
-						</div> 
-					</c:if>
+				<c:forEach  varStatus="mystatus" var="hitprd" items="${hitprdlist }">
+					<c:choose>
+						<c:when test="${mystatus.index==0 }">
+							<div class="item active" style="height: 500px">
+								<img src="/bigdataShop/resources/images/product/${hitprd.img_gen_file_nm}" alt="Chania">
+							</div> 
+						</c:when>
+						<c:otherwise>
+							<div class="item" style="height: 500px">
+								<img src="/bigdataShop/resources/images/product/${hitprd.img_gen_file_nm}" alt="Chania" width="460" height="345">
+							</div> 
+						</c:otherwise>
+					</c:choose>
 				</c:forEach>
 			</div>
 			<!-- Left and right controls -->
@@ -60,18 +62,17 @@
 	<br />
 	<br />
 	<div class="row">
-	<!-- 반복문 -->
-	<c:forEach var="newprd" items="${newprdlist }">
-		<div class="col-sm-4">
-				<div class="panel panel-primary">
-					<div class="panel-heading">${newprd.prd_nm }</div>
-					<div class="panel-body">
-						<a href="#"><img src="/bigdataShop/resources/images/product/${newprd.img_gen_file_nm }"
-							class="img-responsive" style="width: 70%; height: 70%" alt="Image"></a>
+		<c:forEach var="newprd" items="${newprdlist }">
+			<div class="col-sm-4">
+					<div class="panel panel-primary">
+						<div class="panel-heading">${newprd.prd_nm }</div>
+						<div class="panel-body">
+							<a href="#"><img src="/bigdataShop/resources/images/product/${newprd.img_gen_file_nm }"
+								class="img-responsive" style="width: 70%; height: 70%" alt="Image"></a>
+						</div>
+						<div class="panel-footer">판매금액:${newprd.sell_prc_unit }</div>
 					</div>
-					<div class="panel-footer">판매금액:${newprd.sell_prc_unit }</div>
-				</div>
-		</div>
+			</div>
 		</c:forEach>
 	</div>
 </body>

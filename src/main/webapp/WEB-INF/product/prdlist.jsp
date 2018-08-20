@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" 
 session="true" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -45,12 +45,11 @@ footer {
 </style>
 </head>
 <body>
-	
 	<div class="goodsListArea">
 		<!-- 조회 결과 메세지 및 순서 -->
 		<div class="goodsListHead">
 			<p>
-				총<span></span> 개의 상품이 있습니다.
+				총<span>${prdlist.size()}</span> 개의 상품이 있습니다.
 			</p>
 			<ul>
 				<li class="first selected"><a href="#"
@@ -63,11 +62,11 @@ footer {
 					onclick="dataSort( 4, 'PR_NAME asc' ); return false;">상품명순</a></li>
 				<li class="typeGallery"><a href="#"
 					onclick="dataViewType( 2 );return false;"> <img
-						src="/bigdatabigdataShop/resources/images/icn_gllry_2.gif" alt="갤러리 형" />
+						src="/bigdataShop/resources/images/icn_gllry_2.gif" alt="갤러리 형" />
 				</a></li>
 				<li class="typeList"><a href="#"
 					onclick="dataViewType( 1 );return false;"> <img
-									src="/bigdatabigdataShop/resources/images/icn_list_2.gif" alt="리스트 형" />
+									src="/bigdataShop/resources/images/icn_list_2.gif" alt="리스트 형" />
 
 							</a></li>
 				<li class="last"><select name="r_limitrow"
@@ -89,17 +88,19 @@ footer {
 			<!-- 상품리스트 [갤러리 형] 시작 -->
 
 			<ul class="goodsAreaG">
-							<!-- *상품 있을경우 -->
-				<li><a href="#" class="goodsLink"
-					onclick="formGetSubmit( '/commerce/foffice/product/product.lime', 'r_prcode=G4135_F0002_X0004_K0040' )">
-						<img src="/bigdataShop/resources/images/product/bottom_image1.jpg" alt="상품"
-						class="photo" /><br /> <span class="proPrice1"></span>
-				</a><br /> <span class="proPrice2">원</span>
-
+				<!-- *상품 있을경우 -->
+				<c:forEach var="prd" items="${prdlist }">
+						<li><a href="#" class="goodsLink"
+						onclick="formGetSubmit( '/commerce/foffice/product/product.lime', 'r_prcode=G4135_F0002_X0004_K0040' )">
+						<img src="/bigdataShop/resources/images/product/${prd.img_gen_file_nm }" alt="상품"
+						class="photo" /><br /> <span class="proPrice1">${prd.prd_nm }</span>
+						</a><br/>
+						<span class="proPrice2">${prd.sell_prc_unit }원</span>
+				</c:forEach>
+				
+				
 
 					<ul class="bIcon">
-
-
 						<li><a href="#"
 							onclick="basketIn( 'G4135_F0002_X0004_K0040' );return false;"><img
 								src="/bigdataShop/resources/images/bcon_cart.gif" alt="장바구니" /></a></li>
@@ -113,15 +114,5 @@ footer {
 		</div>
 	</div>
 	
-		
-	<footer class="container-fluid text-center">
-			<p>Online Store Copyright</p>
-			<form class="form-inline">
-				Get deals: <input type="email" class="form-control" size="50"
-					placeholder="Email Address">
-				<button type="button" class="btn btn-danger">Sign Up</button>
-			</form>
-		</footer>
-
 </body>
 </html>
