@@ -62,11 +62,11 @@ footer {
 					onclick="dataSort( 4, 'PR_NAME asc' ); return false;">상품명순</a></li>
 				<li class="typeGallery"><a href="#"
 					onclick="dataViewType( 2 );return false;"> <img
-						src="/bigdatabigdataShop/resources/images/icn_gllry_2.gif" alt="갤러리 형" />
+						src="/bigdataShop/resources/images/icn_gllry_2.gif" alt="갤러리 형" />
 				</a></li>
 				<li class="typeList"><a href="#"
 					onclick="dataViewType( 1 );return false;"> <img
-									src="/bigdatabigdataShop/resources/images/icn_list_2.gif" alt="리스트 형" />
+									src="/bigdataShop/resources/images/icn_list_2.gif" alt="리스트 형" />
 
 							</a></li>
 				<li class="last"><select name="r_limitrow"
