@@ -18,14 +18,9 @@ public class ProductController {
 	@RequestMapping("/product/list.do")
 	public String list(String category, Model model) {
 		System.out.println("어노테이션 기반");
-		System.out.println("카테고리: "+category);
-		List<ProductDTO> productlist = null;
-		productlist = service.productlist(category);
-
-		System.out.println("상품목록: "+productlist);
+		List<ProductDTO> productlist = service.productlist(category);
 		model.addAttribute("productlist", productlist);
 		return "product/list";
-
 	}
 
 	@RequestMapping("/product/list2.do")

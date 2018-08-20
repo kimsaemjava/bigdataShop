@@ -25,7 +25,6 @@ public class IndexController{
 		List<ProductDTO> hitproduct = service.hitproduct();
 		List<ProductDTO> newproduct = service.newproduct();
 		
-		//System.out.println("hit: "+hitproduct);
 		mav.addObject("hitproduct", hitproduct);
 		mav.addObject("newproduct", newproduct);
 		mav.setViewName("index");

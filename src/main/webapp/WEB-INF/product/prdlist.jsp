@@ -50,10 +50,9 @@ footer {
 
 	<div class="goodsListArea">
 		<!-- 조회 결과 메세지 및 순서 -->
-		${productlist }
 		<div class="goodsListHead">
 			<p>
-				총<span></span> 개의 상품이 있습니다.
+				총<span>${productlist.size()}</span> 개의 상품이 있습니다.
 			</p>
 			<ul>
 				<li class="first selected"><a href="#"
@@ -100,7 +99,7 @@ footer {
 						onclick="formGetSubmit( '/commerce/foffice/product/product.lime', 'r_prcode=G4135_F0002_X0004_K0040' )">
 							<img
 							src="/bigdataShop/resources/images/product/${item.img_gen_file_nm }"
-							alt="상품" class="photo" /><br /> <span class="proPrice1"></span>
+							alt="상품" class="photo" /><br /> <span class="proPrice1">${item.prd_nm  }</span>
 					</a><br /> <span class="proPrice2">${item.sell_prc_unit }원</span>
 
 

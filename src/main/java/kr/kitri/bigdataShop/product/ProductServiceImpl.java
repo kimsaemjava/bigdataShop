@@ -13,8 +13,8 @@ public class ProductServiceImpl implements ProductService {
 	ProductDAO dao;
 	
 	@Override
-	public List<ProductDTO> productlist(String category_nm) {
-		return dao.productlist(category_nm);
+	public List<ProductDTO> productlist(String category) {
+		return dao.productlist(category);
 	}
 
 	@Override
