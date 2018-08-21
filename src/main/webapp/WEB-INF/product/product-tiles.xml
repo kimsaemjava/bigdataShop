@@ -6,9 +6,12 @@
 <tiles-definitions>
 
 	<definition name="product/list" extends="mainTemplate">
-		<put-attribute name="content" value="/WEB-INF/product/prdlist.jsp" />
+		<put-attribute name="content" value="/WEB-INF/product/prdlist.jsp"></put-attribute>
 	</definition>
 
+	<definition name="product/read" extends="mainTemplate">
+		<put-attribute name="content" value="/WEB-INF/product/product_read.jsp"></put-attribute>
+	</definition>
 
 </tiles-definitions>
 

@@ -12,9 +12,6 @@
 
 	<definition name="index" extends="mainTemplate" />
 	
-	<definition name="product/list" extends="mainTemplate">
-		<put-attribute name="content" value="/WEB-INF/product/prdlist.jsp"></put-attribute>
-	</definition>
 
 	<!-- 템플릿을 정의 (main화면 레이아웃 ; 관리자 페이지 템플릿) -->
 	<definition name="adminTemplate" template="/WEB-INF/layout/adminlayout.jsp">
