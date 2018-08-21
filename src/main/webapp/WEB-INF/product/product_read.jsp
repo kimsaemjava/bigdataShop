@@ -5,24 +5,17 @@
 <html>
 <head>
 <title>Bootstrap Example</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link type="text/css" href="/bigdataShop/resources/common/css/master.css"
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link type="text/css" href="/bigdataShop/resources/common/css/master.css"
 		rel="stylesheet" media="screen,print" />
-	<link type="text/css" href="/bigdataShop/resources/common/css/print.css"
+<link type="text/css" href="/bigdataShop/resources/common/css/print.css"
 		rel="stylesheet" media="print" />
-	<link type="text/css" href="/bigdataShop/resources/common/css/mall.css"
+<link type="text/css" href="/bigdataShop/resources/common/css/mall.css"
 		rel="stylesheet" media="screen,print" />
-	<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
-
-
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <style>
 A.applink:hover {
@@ -66,8 +59,6 @@ A.info:hover {
 }
 </style>
 
-
-
 </head>
 <body>
 	
@@ -110,19 +101,6 @@ A.info:hover {
 						<!-- 가격정보처리 -->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 						<!-- 가격정보처리 -->
 						<dt>상품명</dt>
 						<dd>
@@ -133,13 +111,6 @@ A.info:hover {
 						<dd>
 							${ product.sell_prc_unit}원
 						</dd>
-
-
-
-
-
-
-
 
 
 					</dl>

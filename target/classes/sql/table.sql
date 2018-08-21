@@ -1,4 +1,5 @@
 select * from tb_product;
+
 select * 
 from TB_PRODUCT 
 where CATEGORY_NO = (select CATEGORY_NO 
