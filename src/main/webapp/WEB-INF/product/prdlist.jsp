@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" 
 session="true" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +50,7 @@ footer {
 		<!-- 조회 결과 메세지 및 순서 -->
 		<div class="goodsListHead">
 			<p>
-				총<span>${prdlist.size()}</span> 개의 상품이 있습니다.
+				총<span>${fn:length(prdlist)}</span> 개의 상품이 있습니다.
 			</p>
 			<ul>
 				<li class="first selected"><a href="#"
@@ -86,21 +87,17 @@ footer {
 			<!-- 상품리스트 [리스트 형] 끝 -->
 
 			<!-- 상품리스트 [갤러리 형] 시작 -->
-
 			<ul class="goodsAreaG">
 				<!-- *상품 있을경우 -->
 				<c:forEach var="prd" items="${prdlist }">
-						<li><a href="#" class="goodsLink"
+						<li><a href="/bigdataShop/${prd.category_no }/${prd.prd_no }" class="goodsLink" 
 						onclick="formGetSubmit( '/commerce/foffice/product/product.lime', 'r_prcode=G4135_F0002_X0004_K0040' )">
 						<img src="/bigdataShop/resources/images/product/${prd.img_gen_file_nm }" alt="상품"
 						class="photo" /><br /> <span class="proPrice1">${prd.prd_nm }</span>
 						</a><br/>
 						<span class="proPrice2">${prd.sell_prc_unit }원</span>
-				</c:forEach>
-				
-				
-
-					<ul class="bIcon">
+						
+						<ul class="bIcon">
 						<li><a href="#"
 							onclick="basketIn( 'G4135_F0002_X0004_K0040' );return false;"><img
 								src="/bigdataShop/resources/images/bcon_cart.gif" alt="장바구니" /></a></li>
@@ -108,7 +105,8 @@ footer {
 								src="/bigdataShop/resources/images/bcon_zoom.gif" alt="확대보기" /></a></li>
 
 					</ul>
-				</li>
+					</li>
+				</c:forEach>
 		
 			</ul>
 		</div>
