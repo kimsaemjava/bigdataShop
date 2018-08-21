@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" 
 session="true" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,7 +51,7 @@ footer {
 		<!-- 조회 결과 메세지 및 순서 -->
 		<div class="goodsListHead">
 			<p>
-				총<span></span> ${productlist.size() }개의 상품이 있습니다.
+				총<span>${fn:length(prdlist)}</span> 개의 상품이 있습니다.
 			</p>
 			<ul>
 				<li class="first selected"><a href="#"
@@ -63,11 +64,11 @@ footer {
 					onclick="dataSort( 4, 'PR_NAME asc' ); return false;">상품명순</a></li>
 				<li class="typeGallery"><a href="#"
 					onclick="dataViewType( 2 );return false;"> <img
-						src="/bigdatabigdataShop/resources/images/icn_gllry_2.gif" alt="갤러리 형" />
+						src="/bigdataShop/myimg/icn_gllry_2.gif" alt="갤러리 형" />
 				</a></li>
 				<li class="typeList"><a href="#"
 					onclick="dataViewType( 1 );return false;"> <img
-									src="/bigdatabigdataShop/resources/images/icn_list_2.gif" alt="리스트 형" />
+									src="/bigdataShop/resources/images/icn_list_2.gif" alt="리스트 형" />
 
 							</a></li>
 				<li class="last"><select name="r_limitrow"
@@ -90,12 +91,12 @@ footer {
 
 			<ul class="goodsAreaG">
 				<!-- *상품 있을경우 -->
-				<c:forEach var="item" items="${ productlist}">
-				<li><a href="#" class="goodsLink"
+				<c:forEach var="product" items="${prdlist}">
+				<li><a href="/bigdataShop/product/${product.category_no}/${product.prd_no}" class="goodsLink"
 					onclick="formGetSubmit( '/commerce/foffice/product/product.lime', 'r_prcode=G4135_F0002_X0004_K0040' )">
-						<img src="/bigdataShop/resources/images/product/${item.img_gen_file_nm}" alt="상품"
-						class="photo" /><br /> <span class="proPrice1">${item.prd_nm }</span>
-				</a><br /> <span class="proPrice2">${item.sell_prc_unit }원</span>
+						<img src="/bigdataShop/resources/images/product/${product.img_gen_file_nm}" alt="상품"
+						class="photo" /><br /> <span class="proPrice1">${product.prd_nm }</span>
+				</a><br /> <span class="proPrice2">${product.sell_prc_unit }원</span>
 
 
 					<ul class="bIcon">

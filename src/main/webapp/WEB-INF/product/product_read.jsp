@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -89,7 +88,7 @@ A.info:hover {
 					<div class="photo">
 						<!-- 메인사진 -->
 						<a href="#"><img
-							src="/bigdataShop/resources/images/product/${ product.img_gen_file_nm}"
+							src="/bigdataShop/resources/images/product/${product.img_gen_file_nm}"
 							alt="썸이미지" /></a>
 					</div>
 					<div class="zoomBtn">
@@ -250,8 +249,8 @@ A.info:hover {
 		</div>
 		<!-- goodsDetailWrap : 상품상세정보 전체 END-->
 
-		<img src="/bigdataShop/resources/images/product/${product.img_org_file_nm }"
-			alt="썸이미지" />
+		<%-- <img src="/bigdataShop/resources/images/product/${product.img_org_file_nm }"
+			alt="썸이미지" /> --%>
 		<div id="sky">
 			<img src="/bigdataShop/resources/images/product/${product.img_org_file_nm }"
 			alt="썸이미지" width="50px" height="50px" />
