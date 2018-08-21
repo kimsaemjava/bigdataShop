@@ -100,7 +100,6 @@ A.info:hover {
 
 						<!-- 가격정보처리 -->
 
-
 						<!-- 가격정보처리 -->
 						<dt>상품명</dt>
 						<dd>
@@ -122,7 +121,7 @@ A.info:hover {
 
 					<dl class="goodsDetail" id="defaultDl">
 						<dt>상품코드</dt>
-						<dd></dd>
+						<dd>${ product.prd_no}</dd>
 
 						<dt>규격</dt>
 						<dd>standard</dd>
@@ -144,7 +143,7 @@ A.info:hover {
 							<!-- 상품 수량 조절 영역-->
 							<div class="gCnt">
 								<input type="text" name="v_prbuyea" value="1"
-									style="width: 35px;" title="수량입력칸" onchange="eaChange( this );" />
+									style="width: 35px; height: 19px;" title="수량입력칸" onchange="eaChange( this );" />
 								<input type="hidden" name="h_prcode"
 									value="G4042_F0002_X0004_K0040" /> <input type="hidden"
 									name="h_prname" value="FXK-UTM V300" /> <input type="hidden"
@@ -160,15 +159,11 @@ A.info:hover {
 							</div>
 						</dd>
 
-
-
-
 						<div class="delBtn">
 							<a href="#" onclick="optionAdd( this, 0 ); return false;"> <img
 								src="/bigdataShop/resources/images/btn_icon_plus.gif" alt="추가" />
 							</a>
 						</div>
-
 
 
 						<!------------------ 상품상세 일반형  끝 ---------------------->
@@ -229,7 +224,7 @@ A.info:hover {
 		</div>
 		</div>
 	
-		<!-- =================댓글등록화면================================= -->
+		<!-- =================댓글등록화면과 조회화면================================= -->
 	
 	
 </body>

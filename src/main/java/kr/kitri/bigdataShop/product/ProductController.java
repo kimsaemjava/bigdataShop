@@ -2,10 +2,11 @@ package kr.kitri.bigdataShop.product;
 
 import java.util.List;
 
+import javax.servlet.http.Cookie;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -25,11 +26,18 @@ public class ProductController {
 	}
 	
 	//상품상세보기
-	@RequestMapping("/{category_no}/{prd_no}")
-	public String showProduct(@PathVariable String category_no,@PathVariable String prd_no,Model model) {
+	@RequestMapping("/product/{category_no}/{prd_no}")
+	public String showProduct(@PathVariable String category_no, @PathVariable String prd_no,Model model) {
 		//System.out.println("상품조회:"+prd_no);
+		
+		//쿠키에 상품 번호저장
+		/*Cookie cookie = new Cookie("prd_no", prd_no);
+		cookie.setMaxAge(60*60*24);*/
+
+		//상품상세정보
 		ProductDTO product = service.read(prd_no);
 		model.addAttribute("product", product);
 		return "product/read";
 	}
+
 }
