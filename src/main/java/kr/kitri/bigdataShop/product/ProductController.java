@@ -5,9 +5,9 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class ProductController {
@@ -16,16 +16,20 @@ public class ProductController {
 	ProductService service;
 
 	@RequestMapping("/product/list.do")
-	public String list(String category, Model model) {
-		System.out.println("어노테이션 기반");
+	public ModelAndView list(String category) {
+		ModelAndView mav = new ModelAndView();
 		List<ProductDTO> productlist = service.productlist(category);
-		model.addAttribute("productlist", productlist);
-		return "product/list";
+		mav.addObject("productlist", productlist);
+		mav.setViewName("product/list");
+		return mav;
 	}
 
-	@RequestMapping("/product/list2.do")
-	public String list2() {
-		System.out.println("어노테이션 기반");
-		return "product/prdlist2";
+	// 상품 상세보기
+	@RequestMapping("/{category_no}/{prd_no}")
+	public String showProduct(@PathVariable String category_no,@PathVariable String prd_no, Model model) {
+		System.out.println("상품조회:" + prd_no);
+		ProductDTO product = service.read(prd_no);
+		model.addAttribute("product",product);
+		return "product/read";
 	}
 }
