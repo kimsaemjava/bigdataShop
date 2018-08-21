@@ -14,26 +14,33 @@ public class ProductDAOImpl implements ProductDAO {
 	
 	@Override
 	public List<ProductDTO> productlist(String category) {
-		// TODO Auto-generated method stub
-		return null;
+		String action = "";
+		//System.out.println(category);
+		if(category==null) {
+			action = "kr.kitri.bigdataShop.product.prdlist";
+		}else {
+			action = "kr.kitri.bigdataShop.product.prdctglist";
+		}
+		List<ProductDTO> prdlist = sqlSession.selectList(action,category);
+		//System.out.println(prdlist);
+		return prdlist;
 	}
 
 	@Override
 	public List<ProductDTO> hitproduct() {
-		List<ProductDTO> hitprdlist = sqlSession.selectList("kr.kitri.product.hitprd");
+		List<ProductDTO> hitprdlist = sqlSession.selectList("kr.kitri.bigdataShop.product.hitprd");
 		return hitprdlist;
 	}
 
 	@Override
 	public List<ProductDTO> newproduct() {
-		List<ProductDTO> newprdlist = sqlSession.selectList("kr.kitri.product.newprd");
+		List<ProductDTO> newprdlist = sqlSession.selectList("kr.kitri.bigdataShop.product.newprd");
 		return newprdlist;
 	}
 
 	@Override
 	public ProductDTO read(String prd_no) {
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectOne("kr.kitri.bigdataShop.product.read",prd_no);
 	}
 
 }
