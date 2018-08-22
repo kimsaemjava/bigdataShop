@@ -5,8 +5,10 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="kr.kitri.bigdataShop.product.ProductDTO" alias="product"/>
+		<typeAlias type="kr.kitri.bigdataShop.product.comment.ProductCommentDTO" alias="prdcmt"/>
 	</typeAliases>
 	<mappers>
 		<mapper resource="/mapper/product.xml"/>
+		<mapper resource="/mapper/comment.xml"/>
 	</mappers>
 </configuration>
