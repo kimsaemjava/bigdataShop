@@ -1,6 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,6 +24,7 @@
 <link rel='stylesheet' id='kboard-comments-skin-default-css'
 	href='/bigdataShop/resources/common/css/cmt/comments.css?ver=4.4.4'
 	type='text/css' media='all' />
+	
 <style>
 A.applink:hover {
 	border: 2px dotted #DCE6F4;
@@ -66,10 +66,112 @@ A.info:hover {
 	padding: 30px
 }
 </style>
+<script type="text/javascript">
+$(document).ready(function() {
+	$.ajax({
+		url:"/bigdataShop/product/cmtlist.do",
+		type:"get",
+		success:function(prdcmt){
+			//alert(prdcmt[0].mem_id);
+			prdcmtlist = "";
+			for(i=0; i<prdcmt.length; i++){
+				prdcmtlist = prdcmtlist + "<ul> "
+				+"<li class='kboard-comments-item'> " 
+				+"<div class='comments-list-username'>"+prdcmt[i].mem_id+"</div> "
+				+"<div class='comments-list-create'>"+prdcmt[i].writedate+"</div> "
+				+"<div class='comments-list-content'>"+prdcmt[i].pro_comment+"</div> "
+				+"<div class='comments-list-controller'> "
+				+"<div class='right'> "
+				/* +"<a href='/bigdataShop/product/cmtdelete.do?prdcmt_no="+prdcmt[i].prdcmt_no+"'>삭제</a> " */
+				+"<a id='deletecmt' href='#'>삭제</a> "
+				+"<input type='hidden' id='prdcmt_no' value='"+prdcmt[i].prdcmt_no+"'/>"
+				+"</div>"
+				+"</div>"
+				+"</li>"
+				+"</ul>";
+			} 
+			//alert("test");
+			$("#cmtcount").html(prdcmt.length);
+			$("#cmtlist").empty(prdcmtlist);
+			$("#cmtlist").append(prdcmtlist);
+		}
+	});  
+	$("#insertcmt").on("click",function(){
+		//alert("${product.prd_no}");
+		//alert($("#pro_comment").val());
+		$.ajax({
+			url:"/bigdataShop/product/cmtinsert.do",
+			type:"get",
+			data:{
+				"prd_no": "${product.prd_no}",
+				"mem_id": "jang",
+				"pro_comment": $("#pro_comment").val()
+			},
+			success:function(prdcmt){
+				//alert(prdcmt[0].mem_id);
+				prdcmtlist = "";
+				for(i=0; i<prdcmt.length; i++){
+					prdcmtlist = prdcmtlist + "<ul> "
+					+"<li class='kboard-comments-item'> " 
+					+"<div class='comments-list-username'>"+prdcmt[i].mem_id+"</div> "
+					+"<div class='comments-list-create'>"+prdcmt[i].writedate+"</div> "
+					+"<div class='comments-list-content'>"+prdcmt[i].pro_comment+"</div> "
+					+"<div class='comments-list-controller'> "
+					+"<div class='right'> "
+					/* +"<a href='/bigdataShop/product/cmtdelete.do?prdcmt_no="+prdcmt[i].prdcmt_no+"'>삭제</a> " */
+					+"<a id='deletecmt' href='#'>삭제</a> "
+					+"<input type='hidden' id='prdcmt_no' value='"+prdcmt[i].prdcmt_no+"'/>"
+					+"</div>"
+					+"</div>"
+					+"</li>"
+					+"</ul>";
+				} 
+				//alert("test");
+				$("#cmtcount").html(prdcmt.length);
+				$("#pro_comment").html("");
+				$("#cmtlist").empty(prdcmtlist);
+				$("#cmtlist").append(prdcmtlist);
+			}
+		});  
+	});
+	$("#deletecmt").on("click",function(){
+		alert("test");
+		$.ajax({
+			url:"/bigdataShop/product/cmtdelete.do",
+			type:"get",
+			data:{
+				"prdcmt_no": "${'#prdcmt_no'}.val()"
+			},
+			success:function(prdcmt){
+				prdcmtlist = "";
+				for(i=0; i<prdcmt.length; i++){
+					prdcmtlist = prdcmtlist + "<ul> "
+					+"<li class='kboard-comments-item'> " 
+					+"<div class='comments-list-username'>"+prdcmt[i].mem_id+"</div> "
+					+"<div class='comments-list-create'>"+prdcmt[i].writedate+"</div> "
+					+"<div class='comments-list-content'>"+prdcmt[i].pro_comment+"</div> "
+					+"<div class='comments-list-controller'> "
+					+"<div class='right'> "
+					/* +"<a href='/bigdataShop/product/cmtdelete.do?prdcmt_no="+prdcmt[i].prdcmt_no+"'>삭제</a> " */
+					+"<a id='deletecmt' href='#'>삭제</a> "
+					+"<input type='hidden' id='prdcmt_no' value='"+prdcmt[i].prdcmt_no+"'/>"
+					+"</div>"
+					+"</div>"
+					+"</li>"
+					+"</ul>";
+				} 
+				//alert("test");
+				$("#cmtcount").html(prdcmt.length);
+				$("#cmtlist").empty(prdcmtlist);
+				$("#cmtlist").append(prdcmtlist);
+			}
+		});
+	});
+});
 
+</script>
 </head>
 <body>
-
 	<div id="header"></div>
 	<!-- /header -->
 	<hr />
@@ -176,12 +278,9 @@ A.info:hover {
 
 						<!------------------ 상품상세 일반형  끝 ---------------------->
 
-
 						<!-- *선택옵션 -->
 
-
 						<!-- *입력옵션 -->
-
 
 					</dl>
 
@@ -242,42 +341,19 @@ A.info:hover {
 
 				<div class="comments-header">
 					<div class="comments-count">
-						전체 <span class="comments-total-count">count</span>
+						전체 <span class="comments-total-count" id="cmtcount"></span>
 					</div>
-
-					<hr>
+					<hr/>
 				</div>
-				<div class="comments-list" id="cmtlist">
-					<ul>
-						<li itemscope itemtype="http://schema.org/Comment"
-							class="kboard-comments-item">
-							<div class="comments-list-username" itemprop="author">
-								<img src="/single/upload/mem_img" width="24" height="24"
-									class="avatar avatar-24 wp-user-avatar wp-user-avatar-24 photo avatar-default" />
-							</div>
-							<div class="comments-list-create" itemprop="dateCreated">date</div>
-							<div class="comments-list-content" itemprop="description">txt</div>
-							<div class="comments-list-controller">
-								<div class="right">
-									<a type="button" href="/single/fr/cmtdelete.do?cmt_no=&prd_no="
-										class="comments-button-action comments-button-delete"
-										onclick="return confirm('삭제 하시겠습니까?');" title="삭제">삭제</a>
-
-								</div>
-							</div>
-						</li>
-					</ul>
-				</div>
-				<form id="cmtform" method="post" action="/single/fr/cmtinsert.do">
-					<input name="postno" type="hidden" value="product_no"> <input
-						name="id" type="hidden" value="mem_id">
+				<div class="comments-list" id="cmtlist"></div>
+				<form id="cmtform" method="post">
 					<div class="kboard-comments-form">
 						<div class="comments-field">
-							<textarea name="cmt" placeholder="댓글을 입력하세요."
-								onfocus="kboard_comments_field_show()" required></textarea>
+							<textarea name="pro_comment" id="pro_comment" placeholder="댓글을 입력하세요." 
+							style="color: black;" required ></textarea>
 						</div>
 						<div class="comments-submit-button">
-							<input type="submit" value="입력" id="insertcmt">
+							<input class="btn" type="button" value="입력" id="insertcmt">
 						</div>
 					</div>
 				</form>

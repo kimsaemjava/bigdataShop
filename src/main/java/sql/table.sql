@@ -96,7 +96,7 @@ drop table pro_comment CASCADE CONSTRAINTS;
         );
         
 create sequence prdcmt_seq;
-        
+select * from pro_comment order by prdcmt_no;
         
 DROP TABLE board CASCADE CONSTRAINTS;
 

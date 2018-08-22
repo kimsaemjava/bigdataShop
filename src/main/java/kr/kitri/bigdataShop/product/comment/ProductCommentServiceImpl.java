@@ -25,8 +25,8 @@ public class ProductCommentServiceImpl implements ProductCommentService {
 	}
 
 	@Override
-	public int prdcmtdelete() {
-		return dao.prdcmtdelete();
+	public int prdcmtdelete(String prdcmt_no) {
+		return dao.prdcmtdelete(prdcmt_no);
 	}
 	
 
