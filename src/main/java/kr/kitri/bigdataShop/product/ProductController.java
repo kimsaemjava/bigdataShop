@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ProductController {
 	@Autowired
-	@Qualifier("productservice")
 	ProductService service;
 	
 	//전체상품보기, 카테고리별 보기

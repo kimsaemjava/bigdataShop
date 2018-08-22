@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ProductCommentController {
 	@Autowired
-	@Qualifier("prdcmtservice")
 	ProductCommentService service;
 	
 	
