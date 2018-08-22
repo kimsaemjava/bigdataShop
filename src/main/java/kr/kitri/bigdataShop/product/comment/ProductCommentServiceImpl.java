@@ -7,8 +7,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 
-@Service("prdcmtservice")
-public class ProductCommentServieImpl implements ProductCommentService {
+@Service
+public class ProductCommentServiceImpl implements ProductCommentService {
 
 	@Autowired
 	@Qualifier("prdcmtdao")

@@ -20,9 +20,10 @@
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	
+
 <!-- css 추가 -->
-<link rel='stylesheet' id='kboard-comments-skin-default-css' href='/bigdataShop/resources/common/css/cmt/comments.css?ver=4.4.4'
+<link rel='stylesheet' id='kboard-comments-skin-default-css'
+	href='/bigdataShop/resources/common/css/cmt/comments.css?ver=4.4.4'
 	type='text/css' media='all' />
 <style>
 A.applink:hover {
@@ -234,55 +235,55 @@ A.info:hover {
 	</div>
 
 	<!-- =================댓글등록화면과 조회화면================================= -->
-	
-					<div class="kboard-comments-area">
-						<div id="kboard-comments-1851" class="kboard-comments-default">
-							<div class="kboard-comments-wrap">
 
-								<div class="comments-header">
-									<div class="comments-count">
-										전체 <span class="comments-total-count">count</span>
-									</div>
+	<div class="kboard-comments-area">
+		<div id="kboard-comments-1851" class="kboard-comments-default">
+			<div class="kboard-comments-wrap">
 
-									<hr>
-								</div>
-	<div class="comments-list" id="cmtlist">
-		<ul>
-			<li itemscope itemtype="http://schema.org/Comment"
-				class="kboard-comments-item">
-				<div class="comments-list-username" itemprop="author">
-					<img src="/single/upload/mem_img" width="24" height="24"
-						class="avatar avatar-24 wp-user-avatar wp-user-avatar-24 photo avatar-default" />
-				</div>
-				<div class="comments-list-create" itemprop="dateCreated">date</div>
-				<div class="comments-list-content" itemprop="description">txt</div>
-				<div class="comments-list-controller">
-					<div class="right">
-						<a type="button" href="/single/fr/cmtdelete.do?cmt_no=&prd_no="
-							class="comments-button-action comments-button-delete"
-							onclick="return confirm('삭제 하시겠습니까?');" title="삭제">삭제</a>
-
+				<div class="comments-header">
+					<div class="comments-count">
+						전체 <span class="comments-total-count">count</span>
 					</div>
+
+					<hr>
 				</div>
-			</li>
-		</ul>
-	</div>
-	<form id="cmtform" method="post" action="/single/fr/cmtinsert.do">
-		<input name="postno" type="hidden" value="product_no"> <input
-			name="id" type="hidden" value="mem_id">
-		<div class="kboard-comments-form">
-			<div class="comments-field">
-				<textarea name="cmt" placeholder="댓글을 입력하세요."
-					onfocus="kboard_comments_field_show()" required></textarea>
-			</div>
-			<div class="comments-submit-button">
-				<input type="submit" value="입력" id="insertcmt">
+				<div class="comments-list" id="cmtlist">
+					<ul>
+						<li itemscope itemtype="http://schema.org/Comment"
+							class="kboard-comments-item">
+							<div class="comments-list-username" itemprop="author">
+								<img src="/single/upload/mem_img" width="24" height="24"
+									class="avatar avatar-24 wp-user-avatar wp-user-avatar-24 photo avatar-default" />
+							</div>
+							<div class="comments-list-create" itemprop="dateCreated">date</div>
+							<div class="comments-list-content" itemprop="description">txt</div>
+							<div class="comments-list-controller">
+								<div class="right">
+									<a type="button" href="/single/fr/cmtdelete.do?cmt_no=&prd_no="
+										class="comments-button-action comments-button-delete"
+										onclick="return confirm('삭제 하시겠습니까?');" title="삭제">삭제</a>
+
+								</div>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<form id="cmtform" method="post" action="/single/fr/cmtinsert.do">
+					<input name="postno" type="hidden" value="product_no"> <input
+						name="id" type="hidden" value="mem_id">
+					<div class="kboard-comments-form">
+						<div class="comments-field">
+							<textarea name="cmt" placeholder="댓글을 입력하세요."
+								onfocus="kboard_comments_field_show()" required></textarea>
+						</div>
+						<div class="comments-submit-button">
+							<input type="submit" value="입력" id="insertcmt">
+						</div>
+					</div>
+				</form>
+
 			</div>
 		</div>
-	</form>
-	
-	</div>
-	</div>
 	</div>
 
 </body>
