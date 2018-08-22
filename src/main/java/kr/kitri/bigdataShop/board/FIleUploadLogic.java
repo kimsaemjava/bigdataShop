@@ -13,21 +13,22 @@ public class FIleUploadLogic {
 	FileOutputStream fos;
 
 	public void upload(MultipartFile[] file, String path, ArrayList<String> fileName) {
-		for (int i = 0; i < fileName.size(); i++) {
-			try {
+
+		try {
+			for (int i = 0; i < fileName.size(); i++) {
 				byte[] data = file[i].getBytes();
 				fos = new FileOutputStream(path + File.separator + fileName.get(i));
 				fos.write(data);
+			}
 
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				if (fos != null)
+					fos.close();
 			} catch (IOException e) {
 				e.printStackTrace();
-			} finally {
-				try {
-					if (fos != null)
-						fos.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
 			}
 		}
 	}

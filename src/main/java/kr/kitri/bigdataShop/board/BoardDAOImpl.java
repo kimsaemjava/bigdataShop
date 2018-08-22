@@ -40,9 +40,8 @@ public class BoardDAOImpl implements BoardDAO {
 
 	@Override
 	public int fileInsert(ArrayList<String> filelist) {
-		//HashMap<String, ArrayList<String>> map = new HashMap<String, ArrayList<String>>();
-		HashMap<String, String> map = new HashMap<String,String>();
-		map.put("fileName", filelist.get(0));
+		HashMap<String, ArrayList<String>> map = new HashMap<String, ArrayList<String>>();
+		map.put("fileName", filelist);
 		return sqlSession.insert("kr.kitri.bigdataShop.board.fileinsert", map);
 	}
 	
