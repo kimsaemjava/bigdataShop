@@ -16,7 +16,6 @@
   limitations under the License.
 --><!-- The contents of this file will be loaded for each web application -->
 <Context>
-
     <!-- Default set of monitored resources. If one of these changes, the    -->
     <!-- web application will be reloaded.                                   -->
     <WatchedResource>WEB-INF/web.xml</WatchedResource>
@@ -35,7 +34,7 @@
     <Resource name="jdbc/myspring" auth="Container"
               type="javax.sql.DataSource" 
               driverClassName="oracle.jdbc.driver.OracleDriver"
-              url="jdbc:oracle:thin:@localhost:1521:xe"
+              url="jdbc:oracle:thin:@211.42.204.125:1521:xe"
               username="shop" password="shop"
 			  maxTotal="20" maxIdle="10"
               maxWaitMillis="-1"/>

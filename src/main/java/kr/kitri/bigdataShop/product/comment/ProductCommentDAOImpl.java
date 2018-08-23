@@ -17,8 +17,8 @@ public class ProductCommentDAOImpl implements ProductCommentDAO {
 	}
 
 	@Override
-	public List<ProductCommentDTO> prdcmtlist() {
-		return sqlSession.selectList("kr.kitri.bigdataShop.productcomment.cmtlist");
+	public List<ProductCommentDTO> prdcmtlist(String prd_no) {
+		return sqlSession.selectList("kr.kitri.bigdataShop.productcomment.cmtlist", prd_no);
 	}
 
 	@Override

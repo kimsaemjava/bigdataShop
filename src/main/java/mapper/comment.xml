@@ -13,9 +13,11 @@
 	</delete>
 
 	<select id="cmtlist" resultType="prdcmt">
-		select * from pro_comment order by prdcmt_no
+		select * from pro_comment where prd_no=#{prd_no}
+		order by prdcmt_no
 	</select> 
 </mapper>
+
 
 
 

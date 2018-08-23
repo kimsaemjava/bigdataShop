@@ -20,8 +20,8 @@ public class ProductCommentServiceImpl implements ProductCommentService {
 	}
 
 	@Override
-	public List<ProductCommentDTO> prdcmtlist() {
-		return dao.prdcmtlist();
+	public List<ProductCommentDTO> prdcmtlist(String prd_no) {
+		return dao.prdcmtlist(prd_no);
 	}
 
 	@Override

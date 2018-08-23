@@ -97,7 +97,7 @@ drop table pro_comment CASCADE CONSTRAINTS;
         
 create sequence prdcmt_seq;
 select * from pro_comment order by prdcmt_no;
-        
+delete from pro_comment;       
 DROP TABLE board CASCADE CONSTRAINTS;
 
 select * from board;
