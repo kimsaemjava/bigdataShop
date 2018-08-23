@@ -96,13 +96,11 @@ drop table pro_comment CASCADE CONSTRAINTS;
         );
         
 create sequence prdcmt_seq;
-        
+select * from pro_comment order by prdcmt_no;
         
 DROP TABLE board CASCADE CONSTRAINTS;
 
 select * from board;
-
-
 CREATE TABLE board (
        BOARD_NO             VARCHAR2(12) NOT NULL,
        id               VARCHAR2(20) NOT NULL,
@@ -116,7 +114,7 @@ CREATE TABLE board (
 );
 
 select * from BOARD_FILE;
-
+delete from BOARD_FILE;
 create table board_file(
 	board_no varchar2(12),
 	file_name varchar2(30)	

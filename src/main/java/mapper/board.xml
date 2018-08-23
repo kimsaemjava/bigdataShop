@@ -9,14 +9,14 @@
 	</insert>
 	
 	<insert id="fileinsert" parameterType="Map">
-		insert into board_file values(board_seq.currval, #{fileName})
+		insert all 
+		<foreach collection="fileName" item="file">
+			into board_file values(board_seq.currval, #{file})
+		</foreach>
+		select * from dual
 	</insert>
 	
 	<select id="boardlist" resultType="board">
 		select * from board
 	</select>
 </mapper>
-
-
-
-

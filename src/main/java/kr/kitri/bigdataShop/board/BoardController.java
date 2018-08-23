@@ -37,13 +37,15 @@ public class BoardController {
 		//System.out.println(file.length);
 		ArrayList<String> fileName = new ArrayList<String>();
 		for(int i=0; i<file.length; i++) {
-			fileName.add(file[i].getOriginalFilename());
+			if(!file[i].getOriginalFilename().equals("")) {
+				fileName.add(file[i].getOriginalFilename());
+			}
 		}
+		//파일업로드
 		uploadservice.upload(file, path, fileName);
-		
-		//board, board첨부파일저장
+		//board, 첨부파일명 insert
 		int result = service.insert(board, fileName);
-		//System.out.println(result+"개 삽입 성공");
+		System.out.println(result+"개 삽입 성공");
 		return "redirect:/board/list.do";
 		
 	}

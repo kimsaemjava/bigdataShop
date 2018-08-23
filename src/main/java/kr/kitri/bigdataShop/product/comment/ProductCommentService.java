@@ -7,5 +7,5 @@ import kr.kitri.bigdataShop.product.ProductDTO;
 public interface ProductCommentService {
 	int prdcmtinsert(ProductCommentDTO prdcmtDTO);
 	List<ProductCommentDTO> prdcmtlist();
-	int prdcmtdelete();
+	int prdcmtdelete(String prdcmt_no);
 }

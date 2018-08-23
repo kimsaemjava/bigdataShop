@@ -12,8 +12,8 @@ public class ProductCommentDAOImpl implements ProductCommentDAO {
 	SqlSession sqlSession;
 
 	@Override
-	public int prdcmtinsert(ProductCommentDTO prdcmtDTO) {
-		return sqlSession.insert("kr.kitri.bigdataShop.productcomment.insert", prdcmtDTO);
+	public int prdcmtinsert(ProductCommentDTO prdcmt) {
+		return sqlSession.insert("kr.kitri.bigdataShop.productcomment.insert", prdcmt);
 	}
 
 	@Override
@@ -22,8 +22,8 @@ public class ProductCommentDAOImpl implements ProductCommentDAO {
 	}
 
 	@Override
-	public int prdcmtdelete() {
-		return sqlSession.delete("kr.kitri.bigdataShop.productcomment.delete");
+	public int prdcmtdelete(String prdcmt_no) {
+		return sqlSession.delete("kr.kitri.bigdataShop.productcomment.delete", prdcmt_no);
 	}
 	
 	
