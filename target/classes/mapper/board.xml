@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="kr.kitri.board">
+<select id="boardlist" resultType="board">
+	select * from board
+</select>
+<insert id="insert" parameterType="board">
+	insert into board values(board_seq.nextval,'spring',#{title},#{text},1,'1','1','1')
+</insert>
+<insert id="upload" parameterType="Map">
+	insert into board_file values(board_seq.currval,#{file_name})
+</insert>
+</mapper>

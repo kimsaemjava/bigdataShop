@@ -81,6 +81,8 @@ CREATE TABLE TB_PRODUCT (
         
 DROP TABLE board CASCADE CONSTRAINTS;
 
+CREATE SEQUENCE BOARD_SQE;
+
 CREATE TABLE board (
        BOARD_NO             VARCHAR2(12) NOT NULL,
        id               VARCHAR2(20) NOT NULL,
@@ -92,6 +94,9 @@ CREATE TABLE board (
        MOD_DTM              VARCHAR2(14) NULL,
        PRIMARY KEY (BOARD_NO)
 );
+
+insert into board values(board_sqe,'java','테스트','안녕',1,'1','1','1');
+select * from board
 create table board_file(
 	board_no varchar2(12),
 	file_name varchar2(30)	
