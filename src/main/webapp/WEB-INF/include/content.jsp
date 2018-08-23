@@ -21,12 +21,6 @@
 }
 </style>
 </head>
-<%
-	ArrayList<ProductDTO> hitproduct = (ArrayList<ProductDTO>) request.getAttribute("hitproduct");
-%>
-<%
-	ArrayList<ProductDTO> newproduct = (ArrayList<ProductDTO>) request.getAttribute("newproduct");
-%>
 <body>
 	<br>
 	<div class="row">
