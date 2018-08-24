@@ -10,6 +10,8 @@
 	insert into board values(board_seq.nextval,'spring',#{title},#{text},1,'1','1','1')
 </insert>
 <insert id="upload" parameterType="Map">
-	insert into board_file values(board_seq.currval,#{file_name})
+	insert all<foreach  item="item" index="index" collection="file_name">
+		into board_file values(board_seq.currval,#{item}])
+	</foreach>SELECT * FROM DUAL
 </insert>
 </mapper>
