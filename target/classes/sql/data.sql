@@ -66,7 +66,7 @@ INSERT INTO tb_code(cd_no, cd_nm, cd_group_no, cd_desc) VALUES('D04', '017', '00
 INSERT INTO tb_code(cd_no, cd_nm, cd_group_no, cd_desc) VALUES('D05', '018', '00D', ''); 
 INSERT INTO tb_code(cd_no, cd_nm, cd_group_no, cd_desc) VALUES('D06', '019', '00D', '');  
 
-
+select * from board_file;
 
 
 
