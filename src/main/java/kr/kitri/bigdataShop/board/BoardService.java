@@ -8,5 +8,5 @@ public interface BoardService {
 	List<BoardDTO> searchList(String search);
 	List<BoardDTO> searchList(String tag,String search);
 	List<BoardDTO> pageList();
-	int insert(BoardDTO data,ArrayList<String> filelist) ;
+	int txinsert(BoardDTO data,ArrayList<String> filelist) ;
 }

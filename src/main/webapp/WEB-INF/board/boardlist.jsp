@@ -34,8 +34,8 @@
 		<tbody>
 			<c:forEach var="board" items="${boardlist }">
 				<tr>
-					<td><a href="#">${board.board_no}</a></td>
-					<td>${board.title}</td>
+					<td>${board.board_no}</td>
+					<td><a href="#">${board.title}</a></td>
 					<td>${board.id}</td>
 					<td>${board.reg_dtm}</td>
 					<td>${board.hit }</td>

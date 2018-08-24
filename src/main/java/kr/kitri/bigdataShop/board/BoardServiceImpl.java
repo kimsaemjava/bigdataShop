@@ -35,9 +35,13 @@ public class BoardServiceImpl implements BoardService {
 	}
 	
 	@Override
-	public int insert(BoardDTO data, ArrayList<String> filelist) {
+	public int txinsert(BoardDTO data, ArrayList<String> filelist) {
 		int result1 = dao.insert(data);
-		int result2 = dao.fileInsert(filelist);
+		int result2 = 0;
+		System.out.println(filelist.size());
+		if(filelist.size()!=0) {
+			result2 = dao.fileInsert(filelist);
+		}
 		return result1+result2;
 	}
 	

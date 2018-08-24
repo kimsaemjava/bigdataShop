@@ -90,7 +90,7 @@ $(document).ready(function() {
 					+"<div class='comments-list-content'>"+prdcmt[i].pro_comment+"</div> "
 					+"<div class='comments-list-controller'> "
 					+"<div class='right'> "
-					+"<input class='btn deletebtn' type='button' value='삭제'/>"
+					+"<a type='button' class='deletebtn' href='#'>삭제</a>"
 					+"<input type='hidden' id='cmt_no' value='"+prdcmt[i].prdcmt_no+"'/>"
 					+"</div>"
 					+"</div>"
@@ -125,12 +125,13 @@ $(document).ready(function() {
 						+"<div class='comments-list-content'>"+prdcmt[i].pro_comment+"</div> "
 						+"<div class='comments-list-controller'> "
 						+"<div class='right'> "
-						+"<input class='btn deletebtn' type='button' value='삭제'/>"
+						+"<a type='button' class='deletebtn' href='#'>삭제</a>"
 						+"<input type='hidden' id='cmt_no' value='"+prdcmt[i].prdcmt_no+"'/>"
 						+"</div>"
 						+"</div>"
 						+"</li>"
 						+"</ul>";
+						
 					} 
 					//alert("test");
 					$("#cmtcount").html(prdcmt.length);
@@ -320,10 +321,11 @@ $(document).ready(function() {
 							<div class="comments-list-username">${prdcmt.mem_id }</div>
 							<div class="comments-list-create">${prdcmt.writedate }</div>
 							<div class="comments-list-content">${prdcmt.pro_comment }</div>
-							<input type="hidden" id="cmt_no" value="${prdcmt.prdcmt_no }"/>
+							
 							<div class="comments-list-controller">
 							<div class="right">
-								<input class="btn deletebtn" type="button" value="삭제"/>
+								<a type="button" class="deletebtn" href="#">삭제</a>
+								<input type="hidden" id="cmt_no" value="${prdcmt.prdcmt_no }"/>
 							</div>
 						</div>
 						</li>

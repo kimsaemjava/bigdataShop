@@ -3,13 +3,16 @@ package kr.kitri.bigdataShop.product;
 import java.util.List;
 
 import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.kitri.bigdataShop.product.comment.ProductCommentDTO;
 import kr.kitri.bigdataShop.product.comment.ProductCommentService;
@@ -38,8 +41,8 @@ public class ProductController {
 		//System.out.println("상품조회:"+prd_no);
 		
 		//쿠키에 상품 번호저장
-		/*Cookie cookie = new Cookie("prd_no", prd_no);
-		cookie.setMaxAge(60*60*24);*/
+		Cookie cookie = new Cookie("prd_no", prd_no);
+		cookie.setMaxAge(60*60*24);
 
 		//상품상세정보
 		ProductDTO product = service.read(prd_no);

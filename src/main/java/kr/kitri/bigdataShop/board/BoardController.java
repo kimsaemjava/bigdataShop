@@ -44,7 +44,7 @@ public class BoardController {
 		//파일업로드
 		uploadservice.upload(file, path, fileName);
 		//board, 첨부파일명 insert
-		int result = service.insert(board, fileName);
+		int result = service.txinsert(board, fileName);
 		System.out.println(result+"개 삽입 성공");
 		return "redirect:/board/list.do";
 		
