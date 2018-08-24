@@ -8,7 +8,6 @@
 </head>
 <body>
 	<form action="/bigdataShop/board/search.do">
-		
 		<select name="tag">
 			<option value="writer">작성자</option>
 			<option value="title">제목</option>
@@ -19,7 +18,6 @@
 				style="text-align: right;">글쓰기</a></li>
 		</ul>
 	</form>
-
 	<table class="table">
 		<thead>
 			<tr>
@@ -53,7 +51,6 @@
 			<li><a href="#">5</a></li>
 		</ul>
 	</div>
-
 </body>
 </html>
 
