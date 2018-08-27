@@ -84,15 +84,23 @@ CREATE TABLE TB_PRODUCT (
        PRIMARY KEY (PRD_NO)
 );
 
+drop table pro_comment CASCADE CONSTRAINTS;
+
  create table pro_comment(
+ 		prdcmt_no varchar2(20),
         prd_no varchar2(20) ,
         mem_id varchar2(20) , 
         pro_comment varchar2(60),
-        writedate date);
+        writedate date,
+        PRIMARY KEY (prdcmt_no)
+        );
         
-        
+create sequence prdcmt_seq;
+select * from pro_comment order by prdcmt_no;
+delete from pro_comment;       
 DROP TABLE board CASCADE CONSTRAINTS;
 
+select * from board;
 CREATE TABLE board (
        BOARD_NO             VARCHAR2(12) NOT NULL,
        id               VARCHAR2(20) NOT NULL,
@@ -104,10 +112,24 @@ CREATE TABLE board (
        MOD_DTM              VARCHAR2(14) NULL,
        PRIMARY KEY (BOARD_NO)
 );
+
+select * from BOARD_FILE;
+delete from BOARD_FILE;
 create table board_file(
 	board_no varchar2(12),
 	file_name varchar2(30)	
 );
+
+insert all 
+into board_file values('1','2')
+into board_file values('2','3')
+select * from dual;
+
+create sequence board_seq;
+//DEL_FLG default 1
+//REG_DTM 등록날짜
+//MOD_DTM 수정날짜
+//file_name 파일명만 저장
 
 
 DROP TABLE TB_MEM CASCADE CONSTRAINTS;

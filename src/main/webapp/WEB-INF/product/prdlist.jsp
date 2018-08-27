@@ -20,6 +20,15 @@ session="true" pageEncoding="UTF-8"%>
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("").on("click", function(){
+		alert("test");
+		$.cookie("cookie", ${prd.prd_no });
+		//$.removeCookie("cookie");
+	});
+});  
+</script>	
 <style>
 /* Remove the navbar's default rounded borders and increase the bottom margin */
 .navbar {
@@ -90,7 +99,7 @@ footer {
 			<ul class="goodsAreaG">
 				<!-- *상품 있을경우 -->
 				<c:forEach var="prd" items="${prdlist }">
-						<li><a href="/bigdataShop/${prd.category_no }/${prd.prd_no }" class="goodsLink" 
+						<li><a href="/bigdataShop/product/${prd.category_no }/${prd.prd_no }" class="goodsLink" 
 						onclick="formGetSubmit( '/commerce/foffice/product/product.lime', 'r_prcode=G4135_F0002_X0004_K0040' )">
 						<img src="/bigdataShop/resources/images/product/${prd.img_gen_file_nm }" alt="상품"
 						class="photo" /><br /> <span class="proPrice1">${prd.prd_nm }</span>
